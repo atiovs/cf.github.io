@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<meta content="ie=edge" http-equiv="X-UA-Compatible">
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon">
+		<title>CAREER Coinfinity Group</title>
+		<style data-skip-moving="true">
+			#site-preloader {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition-duration: 300ms;
+				background-color: #ffffff;
+				z-index: 99999;
+				opacity: 1;
+			}
+
+			#site-preloader.is-load {
+				transition-property: opacity;
+				transition-duration: 300ms;
+				opacity: 0;
+				pointer-events: none;
+			}
+
+		</style>
+		<script data-skip-moving="true">
+			window.resourceCounter = 0;
+			window.incrementResourceCounter = function() {
+				window.resourceCounter += 1;
+
+				if (window.resourceCounter === 3) {
+					document.getElementById('site-preloader').classList.add('is-load');
+				}
+			};
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/icons/sprite.svg', true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (this.readyState !== 4) return;
+				if (this.status !== 200) {
+					window.incrementResourceCounter();
+					throw new Error('Error: ' + (this.status ? this.statusText : 'file not found'));
+				} else {
+					var el = document.getElementById('site-svg');
+					el.innerHTML = this.response.toString();
+					window.incrementResourceCounter();
+				}
+			};
+
+		</script>
+		<link href="/css/main.bundle.css" rel="stylesheet" onload="window.incrementResourceCounter()">
+	</head>
+
+	<body>
+		<div id="site-preloader"></div>
+		<div id="site-svg" hidden></div>
+		<svg style="width:0;height:0;position:absolute;">
+			<lineargradient id="gradient" x1="80%" x2="20%" y1="0%" y2="100%">
+				<stop offset="0%" stop-color="#0c56dc"></stop>
+				<stop offset="100%" stop-color="#5c07ca"></stop>
+			</lineargradient>
+		</svg>
+		<header class="header container-fluid">
+			<div class="row header__row">
+				<input hidden id="nav" type="checkbox">
+				<nav class="nav">
+					<label class="burger" for="nav">
+						<span class="burger__line"></span>
+					</label>
+					<a href="./" class="brand">
+						<img alt="logo" src="./images/logo.svg">
+						<img alt="logo-label" src="./images/logo-label.svg">
+					</a>
+					<label class="nav__control" for="nav"></label>
+					<div class="nav__content">
+						<h2 class="nav__title">menu</h2>
+						<ul class="nav__list">
+							<li class="row nav__item">
+								<a href="./dashboard.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-dashboard"></use>
+									</svg>Dashboard
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./portfolios.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-portfolio"></use>
+									</svg>Portfolios
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./transaction.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-transaction"></use>
+									</svg>Transaction
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./history.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-history"></use>
+									</svg>History
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./team.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-team"></use>
+									</svg>Team
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./career.html" class="col-12 is-active">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-career"></use>
+									</svg>Career
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./promotion.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-promo"></use>
+									</svg>Promotion
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./reporting.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-reportion"></use>
+									</svg>Reporting
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./messegaser.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-messegaser"></use>
+									</svg>Messages<span class="nav__coutner">2</span>
+								</a>
+							</li>
+						</ul>
+						<div class="nav__footer row">
+							<a href="./settings.html" class="col">
+								<svg class="icon">
+									<use xlink:href="#icon-settings"></use>
+								</svg>ACCOUNT SETTINGS
+							</a>
+						</div>
+					</div>
+				</nav>
+				<div class="header__info">
+					<h1 class="header__title" id="header-title" title="Career">Career</h1>
+					<div class="switcher" id="switcher">
+						<div class="switcher__toggle">En<svg class="icon">
+								<use xlink:href="#icon-arrow"></use>
+							</svg>
+						</div>
+						<div class="switcher__dropdown">
+							<a href="#" class="is-active">En<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+							<a href="#">De<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="user" id="user">
+						<div class="user__logo">SU</div>
+						<a href="#" class="user__out">Sign out<svg class="icon">
+								<use xlink:href="#icon-out"></use>
+							</svg>
+						</a>
+						<div class="user__name">Sebastian Universe</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main container-fluid career">
+			<div class="row main__row">
+				<div class="main__col">
+					<div class="row">
+						<div class="container">
+							<p class="d-xl-none header__title" id="page-title"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container">
+							<ul class="row main__container">
+								<li class="col-12 col-xl-6 card-wrapper">
+									<section class="card career__portfolio">
+										<div class="card__content">
+											<h3 class="card__content-title">Create portfolio</h3>
+											<button class="button button--blue">Senior Agent</button>
+											<ul class="rank">
+												<li class="rank__item">
+													<div class="rank__item-icon">
+														<img alt="" src="images/star-4.png">
+													</div>
+													<div class="rank__item-info">
+														<span>next renk</span>
+														<b>Manager</b>
+													</div>
+												</li>
+												<li class="rank__item">
+													<div class="rank__item-icon">
+														<svg class="icon icon--grad">
+															<use xlink:href="#icon-pay"></use>
+														</svg>
+													</div>
+													<div class="rank__item-info">
+														<span>next bonus</span>
+														<b>$ 50 00</b>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</section>
+								</li>
+								<li class="col-12 col-xl-6 card-wrapper">
+									<section class="card">
+										<div class="card__content">
+											<h3 class="card__content-title">Progress</h3>
+											<ul class="turnover turnover--price">
+												<li class="turnover__item">
+													<div class="turnover__item-info">
+														<span>Requirement</span>
+														<b>$ 80 000</b>
+													</div>
+												</li>
+												<li class="turnover__item">
+													<div class="turnover__item-info">
+														<span>Already earned partner income</span>
+														<b>$ 48 000</b>
+													</div>
+												</li>
+												<li class="turnover__item">
+													<div class="turnover__item-info">
+														<span>Remaining</span>
+														<b>$ 32 000</b>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<footer class="card__footer">
+											<div class="career__progress">
+												<div class="career__progress-label">
+													<span class="blue">0 %</span>
+													<span class="blue">100 %</span>
+												</div>
+												<div class="js-progress" id="progress2" data-progress="0.94"></div>
+											</div>
+										</footer>
+									</section>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container">
+							<div class="row main__container career__list">
+								<div class="col-12 career__slider swiper-container">
+									<div class="career__slider-arrows">
+										<div class="career__slider-btn career__slider-btn--prev">
+											<svg class="icon">
+												<use xlink:href="#icon-arrow-slider"></use>
+											</svg>
+										</div>
+										<div class="career__slider-btn career__slider-btn--next">
+											<svg class="icon">
+												<use xlink:href="#icon-arrow-slider"></use>
+											</svg>
+										</div>
+									</div>
+									<div class="swiper-wrapper">
+										<div class="swiper-slide career__item is-active">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-1.png">
+											</div>
+											<div class="career__item-name separator">one star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item is-active">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-2.png">
+											</div>
+											<div class="career__item-name separator">two star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-3.png">
+											</div>
+											<div class="career__item-name separator">three star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-4.png">
+											</div>
+											<div class="career__item-name separator">four star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-5.png">
+											</div>
+											<div class="career__item-name separator">five star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-1.png">
+											</div>
+											<div class="career__item-name separator">one star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-2.png">
+											</div>
+											<div class="career__item-name separator">two star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-3.png">
+											</div>
+											<div class="career__item-name separator">three star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-4.png">
+											</div>
+											<div class="career__item-name separator">four star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+										<div class="swiper-slide career__item">
+											<div class="career__item-img">
+												<img alt="rating" src="/images/star-5.png">
+											</div>
+											<div class="career__item-name separator">five star</div>
+											<div class="career__item-title">Bonus</div>
+											<div class="career__item-bonus separator">$ 1 000</div>
+											<div class="career__item-title">Requirement</div>
+											<div class="career__item-requirement">$ 5 000</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script onload="window.incrementResourceCounter()" src="js/main.bundle.js"></script>
+		<script>
+			/***/
+			function careerProgress(id, progress) {
+				/***/
+				function careerProgressText(b) {
+					return (
+						'<span>Completed <span class="blue">' + b + '%</span> of 100%</span>'
+					);
+				}
+
+				var p = new ProgressBar.Line('#' + id, {
+					color: '#5c07ca',
+					strokeWidth: 1,
+					easing: 'easeInOut',
+					trailColor: '#d7d8e0',
+					trailWidth: 1,
+					duration: 1400,
+					text: {
+						autoStyleContainer: false
+					},
+					from: {
+						color: '#aaa',
+						width: 0
+					},
+					to: {
+						color: '#333',
+						width: 5
+					},
+					step: function(state, bar) {
+						bar.setText(careerProgressText(Math.round(bar.value() * 100)));
+					}
+				});
+
+				p.animate(progress);
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				if (document.getElementsByClassName('js-progress')) {
+					var blocks = document.getElementsByClassName('js-progress');
+
+					[].slice.call(blocks).forEach(function(el) {
+						var elID = el.id;
+						var progress = +el.getAttribute('data-progress');
+						careerProgress(elID, progress);
+					});
+				}
+
+				if (document.querySelector('.career__slider')) {
+					new Swiper('.career__slider', {
+						speed: 400,
+						spaceBetween: 30,
+						slidesPerView: 1,
+						navigation: {
+							nextEl: '.career__slider-btn--next',
+							prevEl: '.career__slider-btn--prev'
+						},
+						breakpoints: {
+							420: {
+								slidesPerView: 2
+							},
+							720: {
+								slidesPerView: 4
+							},
+							1060: {
+								slidesPerView: 5
+							},
+						}
+					});
+				}
+			});
+
+		</script>
+	</body>
+
+</html>

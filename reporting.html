@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<meta content="ie=edge" http-equiv="X-UA-Compatible">
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon">
+		<title>REPORTING Coinfinity Group</title>
+		<style data-skip-moving="true">
+			#site-preloader {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition-duration: 300ms;
+				background-color: #ffffff;
+				z-index: 99999;
+				opacity: 1;
+			}
+
+			#site-preloader.is-load {
+				transition-property: opacity;
+				transition-duration: 300ms;
+				opacity: 0;
+				pointer-events: none;
+			}
+
+		</style>
+		<script data-skip-moving="true">
+			window.resourceCounter = 0;
+			window.incrementResourceCounter = function() {
+				window.resourceCounter += 1;
+
+				if (window.resourceCounter === 3) {
+					document.getElementById('site-preloader').classList.add('is-load');
+				}
+			};
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/icons/sprite.svg', true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (this.readyState !== 4) return;
+				if (this.status !== 200) {
+					window.incrementResourceCounter();
+					throw new Error('Error: ' + (this.status ? this.statusText : 'file not found'));
+				} else {
+					var el = document.getElementById('site-svg');
+					el.innerHTML = this.response.toString();
+					window.incrementResourceCounter();
+				}
+			};
+
+		</script>
+		<link href="/css/main.bundle.css" rel="stylesheet" onload="window.incrementResourceCounter()">
+	</head>
+
+	<body>
+		<div id="site-preloader"></div>
+		<div id="site-svg" hidden></div>
+		<svg style="width:0;height:0;position:absolute;">
+			<lineargradient id="gradient" x1="80%" x2="20%" y1="0%" y2="100%">
+				<stop offset="0%" stop-color="#0c56dc"></stop>
+				<stop offset="100%" stop-color="#5c07ca"></stop>
+			</lineargradient>
+		</svg>
+		<header class="header container-fluid">
+			<div class="row header__row">
+				<input hidden id="nav" type="checkbox">
+				<nav class="nav">
+					<label class="burger" for="nav">
+						<span class="burger__line"></span>
+					</label>
+					<a href="./" class="brand">
+						<img alt="logo" src="./images/logo.svg">
+						<img alt="logo-label" src="./images/logo-label.svg">
+					</a>
+					<label class="nav__control" for="nav"></label>
+					<div class="nav__content">
+						<h2 class="nav__title">menu</h2>
+						<ul class="nav__list">
+							<li class="row nav__item">
+								<a href="./dashboard.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-dashboard"></use>
+									</svg>Dashboard
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./portfolios.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-portfolio"></use>
+									</svg>Portfolios
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./transaction.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-transaction"></use>
+									</svg>Transaction
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./history.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-history"></use>
+									</svg>History
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./team.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-team"></use>
+									</svg>Team
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./career.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-career"></use>
+									</svg>Career
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./promotion.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-promo"></use>
+									</svg>Promotion
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./reporting.html" class="col-12 is-active">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-reportion"></use>
+									</svg>Reporting
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./messegaser.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-messegaser"></use>
+									</svg>Messages<span class="nav__coutner">2</span>
+								</a>
+							</li>
+						</ul>
+						<div class="nav__footer row">
+							<a href="./settings.html" class="col">
+								<svg class="icon">
+									<use xlink:href="#icon-settings"></use>
+								</svg>ACCOUNT SETTINGS
+							</a>
+						</div>
+					</div>
+				</nav>
+				<div class="header__info">
+					<h1 class="header__title" id="header-title" title="Reporting">Reporting</h1>
+					<div class="switcher" id="switcher">
+						<div class="switcher__toggle">En<svg class="icon">
+								<use xlink:href="#icon-arrow"></use>
+							</svg>
+						</div>
+						<div class="switcher__dropdown">
+							<a href="#" class="is-active">En<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+							<a href="#">De<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="user" id="user">
+						<div class="user__logo">SU</div>
+						<a href="#" class="user__out">Sign out<svg class="icon">
+								<use xlink:href="#icon-out"></use>
+							</svg>
+						</a>
+						<div class="user__name">Sebastian Universe</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main container-fluid reporting">
+			<div class="row main__row">
+				<div class="main__col">
+					<div class="row">
+						<div class="container">
+							<p class="d-xl-none header__title" id="page-title"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container">
+							<ul class="row main__container">
+								<li class="col-md-12 card-wrapper reporting__chart">
+									<section class="card">
+										<header class="card__title reporting__chart-header">
+											<h3 class="reporting__chart-title">Perfomance of the last 15 weeks</h3>
+											<div class="reporting__chart-right">
+												<div class="reporting__chart-legend">
+													<ul>
+														<li>
+															<span style="background-color: #004bd6"></span>Low Risk
+														</li>
+														<li>
+															<span style="background-color: #5c07ca"></span>Medium Risk
+														</li>
+													</ul>
+												</div>
+												<span class="reporting__right-border">
+													<span class="gray">Date:</span>
+													<span class="reporting__chart-date"> 01.25.2018</span>
+												</span>
+											</div>
+										</header>
+										<div class="card__content">
+											<div class="reporting__chart-item" data-simplebar>
+												<div>
+													<canvas data-pin="[[7000, 12000, 8000, 3500, 18000, 11000, 14000, 9700, 4800, 15200, 13000, 17000, 11500, 6000, 16000], [8000, 2000, 13000, 1000, 13000, 18000, 1000, 11200, 2000, 5200, 13000, 12000, 1500, 6000, 19000]]" height="270" id="chartJSreporting" data-label="[&quot;1 Week&quot;, &quot;2 Week&quot;, &quot;3 Week&quot;, &quot;4 Week&quot;, &quot;5 Week&quot;, &quot;6 Week&quot;, &quot;7 Week&quot;, &quot;8 Week&quot;, &quot;9 Week&quot;, &quot;10 Week&quot;, &quot;11 Week&quot;, &quot;12 Week&quot;, &quot;13 Week&quot;, &quot;14 Week&quot;, &quot;15 Week&quot;]"></canvas>
+												</div>
+											</div>
+										</div>
+									</section>
+								</li>
+								<li class="col-12 col-xl-9 card-wrapper">
+									<section class="card reporting__doughnut">
+										<div class="card__content">
+											<div class="reporting__doughnut-chart">
+												<canvas data-pin="[40, 20, 15, 10, 6, 5, 4]" height="150" id="doughnut-chart" width="150"></canvas>
+											</div>
+											<div class="reporting__doughnut-legend">
+												<h3 class="reporting__doughnut-title">Current split</h3>
+												<ul>
+													<li>
+														<span style="background-color: #ff2625"></span>40 % Leveraget BTC/USD trading
+													</li>
+													<li>
+														<span style="background-color: #f37344"></span>20 % Altcoin trading
+													</li>
+													<li>
+														<span style="background-color: #febc58"></span>15 % Leveraget altcoion trading
+													</li>
+													<li>
+														<span style="background-color: #dfe542"></span>10 % BTC reserves
+													</li>
+													<li>
+														<span style="background-color: #9cce5c"></span>6 % USD reserves
+													</li>
+													<li>
+														<span style="background-color: #27b5ac"></span>6 % Longterm small cap coins
+													</li>
+													<li>
+														<span style="background-color: #3e90c6"></span>3 % ICO
+													</li>
+												</ul>
+											</div>
+										</div>
+									</section>
+								</li>
+								<li class="col-12 col-xl-3 card-wrapper">
+									<section class="card reporting__full">
+										<div class="card__content">
+											<h3 class="reporting__full-title">Current split</h3>
+											<p class="reporting__full-text">In the “Messages” section you can find our detailedweekly reports</p>
+											<button class="button button--blue">Full Reports</button>
+										</div>
+									</section>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script onload="window.incrementResourceCounter()" src="js/main.bundle.js"></script>
+		<script>
+			/***/
+			function chartReporting() {
+				if (document.getElementById('chartJSreporting')) {
+					var block = document.getElementById('chartJSreporting');
+					var labels = JSON.parse(block.getAttribute('data-label'));
+					var data = JSON.parse(block.getAttribute('data-pin'));
+
+					var options = {
+						type: 'line',
+						data: {
+							labels: labels,
+							datasets: [{
+									fill: false,
+									lineTension: 0,
+									backgroundColor: '#004bd6',
+									borderColor: '#004bd6',
+									borderCapStyle: 'butt',
+									borderWidth: 1,
+									borderDash: [],
+									borderDashOffset: 0.0,
+									borderJoinStyle: 'miter',
+									pointBorderColor: '#fff',
+									pointBackgroundColor: '#004bd6',
+									pointBorderWidth: 2,
+									pointHoverRadius: 7,
+									pointHoverBackgroundColor: '#004bd6',
+									pointHoverBorderColor: '#fff',
+									pointHoverBorderWidth: 2,
+									pointRadius: 7,
+									pointHitRadius: 10,
+									data: data[0],
+								},
+								{
+									fill: false,
+									lineTension: 0,
+									backgroundColor: '#5c07ca',
+									borderColor: '#5c07ca',
+									borderCapStyle: 'butt',
+									borderWidth: 1,
+									borderDash: [],
+									borderDashOffset: 0.0,
+									borderJoinStyle: 'miter',
+									pointBorderColor: '#fff',
+									pointBackgroundColor: '#5c07ca',
+									pointBorderWidth: 2,
+									pointHoverRadius: 7,
+									pointHoverBackgroundColor: '#5c07ca',
+									pointHoverBorderColor: '#fff',
+									pointHoverBorderWidth: 2,
+									pointRadius: 7,
+									pointHitRadius: 10,
+									data: data[1],
+								}
+							]
+						},
+						options: {
+							maintainAspectRatio: false,
+							legend: {
+								display: false
+							},
+							scales: {
+								yAxes: [{
+									ticks: {
+										stepSize: 5000,
+										fontFamily: 'Futura-Boo',
+										callback: function(value) {
+											return '$ ' + value;
+										}
+									}
+								}],
+								xAxes: [{
+									ticks: {
+										fontFamily: 'Futura-Boo',
+									}
+								}],
+							},
+							tooltips: {
+								custom: function(tooltip) {
+									if (!tooltip) return;
+									tooltip.displayColors = false;
+								},
+								callbacks: {
+									label: function(tooltipItem, data) {
+										var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+										return val;
+									},
+									title: function() {
+										return '';
+									}
+								}
+
+							}
+						}
+					};
+
+					var ctx = block.getContext('2d');
+					new Chart(ctx, options);
+				}
+			}
+
+			/***/
+			function doughnutChart() {
+				if (document.getElementById('doughnut-chart')) {
+					var block = document.getElementById('doughnut-chart');
+					var data = JSON.parse(block.getAttribute('data-pin'));
+
+					new Chart(document.getElementById('doughnut-chart'), {
+						type: 'doughnut',
+						data: {
+							datasets: [{
+								backgroundColor: [
+									'#ff2625',
+									'#f37344',
+									'#febc58',
+									'#dfe542',
+									'#9cce5c',
+									'#27b5ac',
+									'#3e90c6'
+								],
+								data: data
+							}]
+						},
+						options: {
+							responsive: false,
+							maintainAspectRatio: false,
+							tooltips: {
+								enabled: false
+							},
+							legend: {
+								display: false
+							},
+							title: {
+								display: false
+							}
+						}
+					});
+				}
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				chartReporting();
+				doughnutChart();
+			});
+
+		</script>
+	</body>
+
+</html>

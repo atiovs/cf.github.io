@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<meta content="ie=edge" http-equiv="X-UA-Compatible">
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon">
+		<title>DASHBOARD Coinfinity Group</title>
+		<style data-skip-moving="true">
+			#site-preloader {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition-duration: 300ms;
+				background-color: #ffffff;
+				z-index: 99999;
+				opacity: 1;
+			}
+
+			#site-preloader.is-load {
+				transition-property: opacity;
+				transition-duration: 300ms;
+				opacity: 0;
+				pointer-events: none;
+			}
+
+		</style>
+		<script data-skip-moving="true">
+			window.resourceCounter = 0;
+			window.incrementResourceCounter = function() {
+				window.resourceCounter += 1;
+
+				if (window.resourceCounter === 3) {
+					document.getElementById('site-preloader').classList.add('is-load');
+				}
+			};
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/icons/sprite.svg', true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (this.readyState !== 4) return;
+				if (this.status !== 200) {
+					window.incrementResourceCounter();
+					throw new Error('Error: ' + (this.status ? this.statusText : 'file not found'));
+				} else {
+					var el = document.getElementById('site-svg');
+					el.innerHTML = this.response.toString();
+					window.incrementResourceCounter();
+				}
+			};
+
+		</script>
+		<link href="/css/main.bundle.css" rel="stylesheet" onload="window.incrementResourceCounter()">
+	</head>
+
+	<body>
+		<div id="site-preloader"></div>
+		<div id="site-svg" hidden></div>
+		<svg style="width:0;height:0;position:absolute;">
+			<lineargradient id="gradient" x1="80%" x2="20%" y1="0%" y2="100%">
+				<stop offset="0%" stop-color="#0c56dc"></stop>
+				<stop offset="100%" stop-color="#5c07ca"></stop>
+			</lineargradient>
+		</svg>
+		<header class="header container-fluid">
+			<div class="row header__row">
+				<input hidden id="nav" type="checkbox">
+				<nav class="nav">
+					<label class="burger" for="nav">
+						<span class="burger__line"></span>
+					</label>
+					<a href="./" class="brand">
+						<img alt="logo" src="./images/logo.svg">
+						<img alt="logo-label" src="./images/logo-label.svg">
+					</a>
+					<label class="nav__control" for="nav"></label>
+					<div class="nav__content">
+						<h2 class="nav__title">menu</h2>
+						<ul class="nav__list">
+							<li class="row nav__item">
+								<a href="./dashboard.html" class="col-12 is-active">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-dashboard"></use>
+									</svg>Dashboard
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./portfolios.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-portfolio"></use>
+									</svg>Portfolios
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./transaction.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-transaction"></use>
+									</svg>Transaction
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./history.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-history"></use>
+									</svg>History
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./team.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-team"></use>
+									</svg>Team
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./career.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-career"></use>
+									</svg>Career
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./promotion.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-promo"></use>
+									</svg>Promotion
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./reporting.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-reportion"></use>
+									</svg>Reporting
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./messegaser.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-messegaser"></use>
+									</svg>Messages<span class="nav__coutner">2</span>
+								</a>
+							</li>
+						</ul>
+						<div class="nav__footer row">
+							<a href="./settings.html" class="col">
+								<svg class="icon">
+									<use xlink:href="#icon-settings"></use>
+								</svg>ACCOUNT SETTINGS
+							</a>
+						</div>
+					</div>
+				</nav>
+				<div class="header__info">
+					<h1 class="header__title" id="header-title" title="Dashboard">Dashboard</h1>
+					<div class="switcher" id="switcher">
+						<div class="switcher__toggle">En<svg class="icon">
+								<use xlink:href="#icon-arrow"></use>
+							</svg>
+						</div>
+						<div class="switcher__dropdown">
+							<a href="#" class="is-active">En<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+							<a href="#">De<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="user" id="user">
+						<div class="user__logo">SU</div>
+						<a href="#" class="user__out">Sign out<svg class="icon">
+								<use xlink:href="#icon-out"></use>
+							</svg>
+						</a>
+						<div class="user__name">Sebastian Universe</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main container-fluid">
+			<div class="row main__row">
+				<div class="main__col">
+					<div class="row">
+						<div class="container">
+							<p class="d-xl-none header__title" id="page-title"></p>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container">
+							<ul class="row main__container">
+								<li class="col-12 col-md-6 card-wrapper">
+									<section class="card dashboard-wallet">
+										<header class="card__title">
+											<h3>Wallet</h3>
+										</header>
+										<div class="card__content">
+											<p>Balance of your personal Wallet</p>
+											<p class="blue dashboard-wallet__price">$ 892</p>
+											<div class="button-group">
+												<button class="button">Deposit</button>
+												<button class="button">Withdraw</button>
+											</div>
+										</div>
+										<footer class="card__footer">
+											<ul class="row card__footer-list">
+												<li class="col-6 card__footer-item">
+													<span class="gray">Last Deposit:</span>
+													<span class="black">$ 393.33</span>
+												</li>
+												<li class="col-6 card__footer-item">
+													<span class="gray">Last Withdraw:</span>
+													<span class="black">$ 393.33</span>
+												</li>
+											</ul>
+										</footer>
+									</section>
+								</li>
+								<li class="col-12 col-md-6 card-wrapper">
+									<div class="card">
+										<div class="card__content card__content--list">
+											<div class="card__content-item">
+												<svg class="icon">
+													<use xlink:href="#icon-calendar"></use>
+												</svg>
+												<div class="item-content">
+													<p class="item-label">Profits last week</p>
+													<p class="blue item-price">$ 24 839</p>
+												</div>
+											</div>
+											<div class="card__content-item">
+												<svg class="icon">
+													<use xlink:href="#icon-donation"></use>
+												</svg>
+												<div class="item-content">
+													<p class="item-label">Total passive income</p>
+													<p class="blue item-price">$ 3 893</p>
+												</div>
+											</div>
+											<div class="card__content-item">
+												<svg class="icon">
+													<use xlink:href="#icon-support"></use>
+												</svg>
+												<div class="item-content">
+													<p class="item-label">Total partner income</p>
+													<p class="blue item-price">$ 93 348</p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</li>
+								<li class="col-12 col-md-6 card-wrapper">
+									<section class="card dashboard-portfolio">
+										<header class="card__title">
+											<h3>My portfolio</h3>
+											<div class="dashboard-portfolio__price">
+												<span>Personal Investment:</span>
+												<span class="blue">$ 239.83</span>
+											</div>
+										</header>
+										<div class="card__content">
+											<canvas data-label="[&quot;4 deg&quot;, &quot;5 deg&quot;, &quot;6 deg&quot;, &quot;7 deg&quot;, &quot;8 deg&quot;, &quot;9 deg&quot;, &quot;10 deg&quot;]" data-pin="[0.3, 5, 4.1, 9.6, 4, 5, 2]" id="chartJSContainer"></canvas>
+										</div>
+									</section>
+								</li>
+								<li class="col-12 col-md-6 card-wrapper">
+									<section class="card dashboard-career">
+										<header class="card__title">
+											<h3>Career</h3>
+										</header>
+										<div class="card__content">
+											<div class="dashboard-career__info">
+												<img alt="" src="/images/star-4.png" class="dashboard-career__img">
+												<p class="gray">Your Rank:</p>
+												<p class="dashboard-career__rank">Four Star</p>
+											</div>
+											<div class="dashboard-career__chart">
+												<div class="svg-lineargradient">
+													<svg>
+														<defs>
+															<pattern height="115" id="grad1" patternUnits="userSpaceOnUse" width="115">
+																<image height="115" width="115" xlink:href="./images/mask.png"></image>
+															</pattern>
+														</defs>
+													</svg>
+												</div>
+												<div id="career" data-label="Next Rank:" data-progress="0.6" data-rank="Five Star"></div>
+											</div>
+										</div>
+									</section>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script onload="window.incrementResourceCounter()" src="js/main.bundle.js"></script>
+		<script>
+			/***/
+			function career() {
+				if (document.getElementById('career')) {
+					var block = document.getElementById('career');
+					var label = block.getAttribute('data-label');
+					var rank = block.getAttribute('data-rank');
+					var progress = +block.getAttribute('data-progress');
+
+					/***/
+					function careerText(b) {
+						return (
+							'<span class="gray">' + label + '</span><span class="black">' + rank + '</span><span class="blue">' + b + '%</span>'
+						);
+					}
+
+					var bar = new ProgressBar.Circle('#career', {
+						color: '#aaa',
+						strokeWidth: 5,
+						easing: 'easeInOut',
+						trailColor: '#d7d8e0',
+						trailWidth: 5,
+						duration: 1400,
+						text: {
+							autoStyleContainer: false
+						},
+						from: {
+							color: '#aaa',
+							width: 0
+						},
+						to: {
+							color: '#333',
+							width: 5
+						},
+						step: function(state, circle) {
+							circle.path.setAttribute('stroke', 'url(#grad1)');
+							circle.path.setAttribute('stroke-width', state.width);
+							var value = Math.round(circle.value() * 100);
+							circle.setText(careerText(value));
+						}
+					});
+					bar.animate(progress);
+				}
+			}
+
+			/***/
+			function chartPortfolio() {
+				if (document.getElementById('chartJSContainer')) {
+					var block = document.getElementById('chartJSContainer');
+					var labels = JSON.parse(block.getAttribute('data-label'));
+					var data = JSON.parse(block.getAttribute('data-pin'));
+
+					var options = {
+						type: 'line',
+						data: {
+							labels: labels,
+							datasets: [{
+								fill: false,
+								lineTension: 0,
+								backgroundColor: '#5c07ca',
+								borderColor: '#5c07ca',
+								borderCapStyle: 'butt',
+								borderWidth: 1,
+								borderDash: [],
+								borderDashOffset: 0.0,
+								borderJoinStyle: 'miter',
+								pointBorderColor: '#fff',
+								pointBackgroundColor: '#5c07ca',
+								pointBorderWidth: 2,
+								pointHoverRadius: 7,
+								pointHoverBackgroundColor: '#5c07ca',
+								pointHoverBorderColor: '#fff',
+								pointHoverBorderWidth: 2,
+								pointRadius: 7,
+								pointHitRadius: 10,
+								data: data
+							}]
+						},
+						options: {
+							responsive: true,
+							maintainAspectRatio: false,
+							legend: {
+								display: false
+							},
+							scales: {
+								yAxes: [{
+									ticks: {
+										stepSize: 5,
+										fontFamily: 'Futura-Boo',
+									}
+								}],
+								xAxes: [{
+									ticks: {
+										fontFamily: 'Futura-Boo',
+									}
+								}],
+							},
+							tooltips: {
+								custom: function(tooltip) {
+									if (!tooltip) return;
+									tooltip.displayColors = false;
+								},
+								callbacks: {
+									label: function(tooltipItem, data) {
+										var val = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index];
+										return val;
+									},
+									title: function() {
+										return '';
+									}
+								}
+
+							}
+						}
+					};
+
+					var ctx = block.getContext('2d');
+					new Chart(ctx, options);
+				}
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				career();
+				chartPortfolio();
+			});
+
+		</script>
+	</body>
+
+</html>

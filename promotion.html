@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<meta content="ie=edge" http-equiv="X-UA-Compatible">
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon">
+		<title>PROMOTION Coinfinity Group</title>
+		<style data-skip-moving="true">
+			#site-preloader {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition-duration: 300ms;
+				background-color: #ffffff;
+				z-index: 99999;
+				opacity: 1;
+			}
+
+			#site-preloader.is-load {
+				transition-property: opacity;
+				transition-duration: 300ms;
+				opacity: 0;
+				pointer-events: none;
+			}
+
+		</style>
+		<script data-skip-moving="true">
+			window.resourceCounter = 0;
+			window.incrementResourceCounter = function() {
+				window.resourceCounter += 1;
+
+				if (window.resourceCounter === 3) {
+					document.getElementById('site-preloader').classList.add('is-load');
+				}
+			};
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/icons/sprite.svg', true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (this.readyState !== 4) return;
+				if (this.status !== 200) {
+					window.incrementResourceCounter();
+					throw new Error('Error: ' + (this.status ? this.statusText : 'file not found'));
+				} else {
+					var el = document.getElementById('site-svg');
+					el.innerHTML = this.response.toString();
+					window.incrementResourceCounter();
+				}
+			};
+
+		</script>
+		<link href="/css/main.bundle.css" rel="stylesheet" onload="window.incrementResourceCounter()">
+	</head>
+
+	<body>
+		<div id="site-preloader"></div>
+		<div id="site-svg" hidden></div>
+		<svg style="width:0;height:0;position:absolute;">
+			<lineargradient id="gradient" x1="80%" x2="20%" y1="0%" y2="100%">
+				<stop offset="0%" stop-color="#0c56dc"></stop>
+				<stop offset="100%" stop-color="#5c07ca"></stop>
+			</lineargradient>
+		</svg>
+		<header class="header container-fluid">
+			<div class="row header__row">
+				<input hidden type="checkbox" id="nav">
+				<nav class="nav">
+					<label class="burger" for="nav">
+						<span class="burger__line"></span>
+					</label>
+					<a href="./" class="brand">
+						<img alt="logo" src="./images/logo.svg">
+						<img alt="logo-label" src="./images/logo-label.svg">
+					</a>
+					<label class="nav__control" for="nav"></label>
+					<div class="nav__content">
+						<h2 class="nav__title">menu</h2>
+						<ul class="nav__list">
+							<li class="row nav__item">
+								<a href="./dashboard.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-dashboard"></use>
+									</svg>Dashboard
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./portfolios.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-portfolio"></use>
+									</svg>Portfolios
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./transaction.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-transaction"></use>
+									</svg>Transaction
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./history.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-history"></use>
+									</svg>History
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./team.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-team"></use>
+									</svg>Team
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./career.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-career"></use>
+									</svg>Career
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./promotion.html" class="col-12 is-active">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-promo"></use>
+									</svg>Promotion
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./reporting.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-reportion"></use>
+									</svg>Reporting
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./messegaser.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-messegaser"></use>
+									</svg>Messages<span class="nav__coutner">2</span>
+								</a>
+							</li>
+						</ul>
+						<div class="nav__footer row">
+							<a href="./settings.html" class="col">
+								<svg class="icon">
+									<use xlink:href="#icon-settings"></use>
+								</svg>ACCOUNT SETTINGS
+							</a>
+						</div>
+					</div>
+				</nav>
+				<div class="header__info">
+					<h1 class="header__title" id="header-title" title="Promotion">Promotion</h1>
+					<div class="switcher" id="switcher">
+						<div class="switcher__toggle">En<svg class="icon">
+								<use xlink:href="#icon-arrow"></use>
+							</svg>
+						</div>
+						<div class="switcher__dropdown">
+							<a href="#" class="is-active">En<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+							<a href="#">De<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="user" id="user">
+						<div class="user__logo">SU</div>
+						<a href="#" class="user__out">Sign out<svg class="icon">
+								<use xlink:href="#icon-out"></use>
+							</svg>
+						</a>
+						<div class="user__name">Sebastian Universe</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main container-fluid promotion">
+			<div class="row main__row">
+				<div class="main__col">
+					<div class="row">
+						<div class="container">
+							<p class="d-xl-none header__title" id="page-title"></p>
+						</div>
+					</div>
+					<div class="row main__container">
+						<div class="container">
+							<div class="row">
+								<div class="col-12 col-md-5">
+									<div class="row">
+										<div class="col-12 card-wrapper">
+											<div class="card promotion__card">
+												<p class="promotion__card-title">You affiliate link</p>
+												<div class="copy">
+													<input value="chrome://bookmarks/?id=453" class="input" placeholder="State" readonly="readonly">
+													<div class="copy__btn">
+														<svg class="icon">
+															<use xlink:href="#icon-copy"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="col-12 card-wrapper">
+											<div class="card promotion__card">
+												<p class="promotion__card-title">Link for you personalized Landing Page</p>
+												<div class="dropdown js-dropdown mb-16">
+													<div class="button dropdown__header">
+														<span>Language</span>
+														<svg class="icon">
+															<use xlink:href="#icon-arrow"></use>
+														</svg>
+													</div>
+													<div class="dropdown__content" data-simplebar>
+														<label class="dropdown__item">
+															<input value="Name 1" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 1<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+														<label class="dropdown__item">
+															<input value="Name 2" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 2<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+														<label class="dropdown__item">
+															<input value="Name 3" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 3<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+														<label class="dropdown__item">
+															<input value="Name 4" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 4<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+														<label class="dropdown__item">
+															<input value="Name 5" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 5<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+														<label class="dropdown__item">
+															<input value="Name 6" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 6<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+														<label class="dropdown__item">
+															<input value="Name 7" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 7<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+														<label class="dropdown__item">
+															<input value="Name 8" hidden name="Adress" type="radio">
+															<span class="dropdown__item-content">Name 8<svg class="icon">
+																	<use xlink:href="#icon-check"></use>
+																</svg>
+															</span>
+														</label>
+													</div>
+												</div>
+												<div class="copy">
+													<input value="chrome://bookmarks/?id=453" class="input" placeholder="State" readonly="readonly">
+													<div class="copy__btn">
+														<svg class="icon">
+															<use xlink:href="#icon-copy"></use>
+														</svg>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-7 card-wrapper">
+									<div class="card promotion__card">
+										<div class="promotion__right">
+											<p class="promotion__card-title">Download business presentation</p>
+											<div class="dropdown js-dropdown">
+												<div class="button dropdown__header">
+													<span>Language</span>
+													<svg class="icon">
+														<use xlink:href="#icon-arrow"></use>
+													</svg>
+												</div>
+												<div class="dropdown__content" data-simplebar>
+													<label class="dropdown__item">
+														<input value="Name 1" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 1<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+													<label class="dropdown__item">
+														<input value="Name 2" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 2<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+													<label class="dropdown__item">
+														<input value="Name 3" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 3<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+													<label class="dropdown__item">
+														<input value="Name 4" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 4<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+													<label class="dropdown__item">
+														<input value="Name 5" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 5<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+													<label class="dropdown__item">
+														<input value="Name 6" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 6<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+													<label class="dropdown__item">
+														<input value="Name 7" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 7<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+													<label class="dropdown__item">
+														<input value="Name 8" hidden name="Adress" type="radio">
+														<span class="dropdown__item-content">Name 8<svg class="icon">
+																<use xlink:href="#icon-check"></use>
+															</svg>
+														</span>
+													</label>
+												</div>
+											</div>
+											<div class="promotion__files">
+												<div class="row">
+													<div class="col-6 promotion__files-item">
+														<img alt="pdf" src="images/pdf.svg" class="promotion__files-img">
+														<div class="promotion__files-label">Presentation file names,
+															<br>several lines</div>
+														<a href="#" class="button" download>Download</a>
+													</div>
+													<div class="col-6 promotion__files-item">
+														<img alt="pdf" src="images/pdf.svg" class="promotion__files-img">
+														<div class="promotion__files-label">Presentation file names,
+															<br>several lines</div>
+														<a href="#" class="button" download>Download</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<script onload="window.incrementResourceCounter()" src="js/main.bundle.js"></script>
+		<script>
+			if (document.querySelectorAll('.dropdown')) {
+				var dropdown = document.querySelectorAll('.dropdown');
+				[].slice.call(dropdown).forEach(function(item, index) {
+					var dd = new Dropdown({
+						container: item,
+						btn: '.dropdown__header',
+						btnText: 'span',
+						selectItem: 'input',
+						openClass: 'is-open',
+						index: index
+					});
+					dd.init();
+					dd.selected();
+				});
+			}
+
+		</script>
+	</body>
+
+</html>

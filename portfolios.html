@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta content="width=device-width,initial-scale=1" name="viewport">
+		<meta content="ie=edge" http-equiv="X-UA-Compatible">
+		<link href="images/favicon.ico" rel="icon" type="image/x-icon">
+		<title>PORTFOLIOS Coinfinity Group</title>
+		<style data-skip-moving="true">
+			#site-preloader {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition-duration: 300ms;
+				background-color: #ffffff;
+				z-index: 99999;
+				opacity: 1;
+			}
+
+			#site-preloader.is-load {
+				transition-property: opacity;
+				transition-duration: 300ms;
+				opacity: 0;
+				pointer-events: none;
+			}
+
+		</style>
+		<script data-skip-moving="true">
+			window.resourceCounter = 0;
+			window.incrementResourceCounter = function() {
+				window.resourceCounter += 1;
+
+				if (window.resourceCounter === 3) {
+					document.getElementById('site-preloader').classList.add('is-load');
+				}
+			};
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', '/icons/sprite.svg', true);
+			xhr.send();
+			xhr.onreadystatechange = function() {
+				if (this.readyState !== 4) return;
+				if (this.status !== 200) {
+					window.incrementResourceCounter();
+					throw new Error('Error: ' + (this.status ? this.statusText : 'file not found'));
+				} else {
+					var el = document.getElementById('site-svg');
+					el.innerHTML = this.response.toString();
+					window.incrementResourceCounter();
+				}
+			};
+
+		</script>
+		<link href="/css/main.bundle.css" rel="stylesheet" onload="window.incrementResourceCounter()">
+	</head>
+
+	<body>
+		<div id="site-preloader"></div>
+		<div id="site-svg" hidden></div>
+		<svg style="width:0;height:0;position:absolute;">
+			<lineargradient id="gradient" x1="80%" x2="20%" y1="0%" y2="100%">
+				<stop offset="0%" stop-color="#0c56dc"></stop>
+				<stop offset="100%" stop-color="#5c07ca"></stop>
+			</lineargradient>
+		</svg>
+		<header class="header container-fluid">
+			<div class="row header__row">
+				<input hidden type="checkbox" id="nav">
+				<nav class="nav">
+					<label class="burger" for="nav">
+						<span class="burger__line"></span>
+					</label>
+					<a href="./" class="brand">
+						<img alt="logo" src="./images/logo.svg">
+						<img alt="logo-label" src="./images/logo-label.svg">
+					</a>
+					<label class="nav__control" for="nav"></label>
+					<div class="nav__content">
+						<h2 class="nav__title">menu</h2>
+						<ul class="nav__list">
+							<li class="row nav__item">
+								<a href="./dashboard.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-dashboard"></use>
+									</svg>Dashboard
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./portfolios.html" class="col-12 is-active">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-portfolio"></use>
+									</svg>Portfolios
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./transaction.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-transaction"></use>
+									</svg>Transaction
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./history.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-history"></use>
+									</svg>History
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./team.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-team"></use>
+									</svg>Team
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./career.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-career"></use>
+									</svg>Career
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./promotion.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-promo"></use>
+									</svg>Promotion
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./reporting.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-reportion"></use>
+									</svg>Reporting
+								</a>
+							</li>
+							<li class="row nav__item">
+								<a href="./messegaser.html" class="col-12">
+									<svg class="icon icon--grad">
+										<use xlink:href="#icon-messegaser"></use>
+									</svg>Messages<span class="nav__coutner">2</span>
+								</a>
+							</li>
+						</ul>
+						<div class="nav__footer row">
+							<a href="./settings.html" class="col">
+								<svg class="icon">
+									<use xlink:href="#icon-settings"></use>
+								</svg>ACCOUNT SETTINGS
+							</a>
+						</div>
+					</div>
+				</nav>
+				<div class="header__info">
+					<h1 class="header__title" id="header-title" title="Portfolios">Portfolios</h1>
+					<div class="switcher" id="switcher">
+						<div class="switcher__toggle">En<svg class="icon">
+								<use xlink:href="#icon-arrow"></use>
+							</svg>
+						</div>
+						<div class="switcher__dropdown">
+							<a href="#" class="is-active">En<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+							<a href="#">De<svg class="icon">
+									<use xlink:href="#icon-check"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="user" id="user">
+						<div class="user__logo">SU</div>
+						<a href="#" class="user__out">Sign out<svg class="icon">
+								<use xlink:href="#icon-out"></use>
+							</svg>
+						</a>
+						<div class="user__name">Sebastian Universe</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<main class="main container-fluid main__white portfolio-page">
+			<div class="row main__row">
+				<div class="main__col">
+					<div class="row main__blue">
+						<div class="container">
+							<p class="d-xl-none header__title" id="page-title"></p>
+						</div>
+					</div>
+					<div class="row main__blue main__blue--border">
+						<div class="container">
+							<ul class="row main__container portfolio">
+								<li class="col-12 col-md-6 card-wrapper">
+									<section class="card portfolio__item">
+										<header class="portfolio__item-title">
+											<h3>MEDIUM RISK</h3>
+										</header>
+										<div class="portfolio__item-content">
+											<div class="portfolio__item-row">
+												<span class="is-left">Return:</span>
+												<span class="is-right">2.2 % - 3.6 % ∙ Week</span>
+											</div>
+											<div class="portfolio__item-row">
+												<span class="is-left">Minimum Investment:</span>
+												<span class="is-right">$ 100</span>
+											</div>
+										</div>
+									</section>
+								</li>
+								<li class="col-12 col-md-6 card-wrapper">
+									<section class="card portfolio__item">
+										<header class="portfolio__item-title">
+											<h3>LOW RISK</h3>
+										</header>
+										<div class="portfolio__item-content">
+											<div class="portfolio__item-row">
+												<span class="is-left">Return:</span>
+												<span class="is-right">1.2 % - 2.4 % ∙ Week</span>
+											</div>
+											<div class="portfolio__item-row">
+												<span class="is-left">Minimum Investment:</span>
+												<span class="is-right">$ 2 500</span>
+											</div>
+										</div>
+									</section>
+								</li>
+							</ul>
+							<div class="row">
+								<div class="col-12 portfolio__button">
+									<button class="button button--blue">Perform Investment</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-12"></div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="container">
+							<div class="row tab">
+								<div class="col-md-12">
+									<div class="portfolio-page__header">
+										<h2 class="portfolio-page__title">My active Portfolios</h2>
+										<div class="button-control">
+											<label>
+												<input hidden type="radio" class="tab__btn" name="btn-control" checked="checked">
+												<span>Medium Risk</span>
+											</label>
+											<label>
+												<input hidden type="radio" class="tab__btn" name="btn-control">
+												<span>Low Risk</span>
+											</label>
+										</div>
+									</div>
+									<div data-simplebar>
+										<div class="portfolio-page__scroll">
+											<div class="tab__item is-active">
+												<table class="table">
+													<thead>
+														<tr>
+															<th>id</th>
+															<th>start</th>
+															<th>Runtime in weeks</th>
+															<th>amount</th>
+															<th>Dissolve Portfolio</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>3829374</td>
+															<td>08.21.2018</td>
+															<td>4 weeks</td>
+															<td>$ 200 00</td>
+															<td>
+																<button class="is-remove" data-popup-open="#modal">
+																	<svg class="icon">
+																		<use xlink:href="#icon-close"></use>
+																	</svg>
+																</button>
+															</td>
+														</tr>
+														<tr>
+															<td>3829374</td>
+															<td>08.21.2018</td>
+															<td>4 weeks</td>
+															<td>$ 200 00</td>
+															<td>
+																<button class="is-remove" data-popup-open="#modal">
+																	<svg class="icon">
+																		<use xlink:href="#icon-close"></use>
+																	</svg>
+																</button>
+															</td>
+														</tr>
+														<tr>
+															<td>3829374</td>
+															<td>08.21.2018</td>
+															<td>4 weeks</td>
+															<td>$ 200 00</td>
+															<td>
+																<button class="is-remove" data-popup-open="#modal">
+																	<svg class="icon">
+																		<use xlink:href="#icon-close"></use>
+																	</svg>
+																</button>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+											<div class="tab__item">
+												<table class="table">
+													<thead>
+														<tr>
+															<th>id</th>
+															<th>start</th>
+															<th>Runtime in weeks</th>
+															<th>amount</th>
+															<th>Dissolve Portfolio</th>
+														</tr>
+													</thead>
+													<tbody>
+														<tr>
+															<td>3534</td>
+															<td>08.21.2019</td>
+															<td>4 weeks</td>
+															<td>$ 200 0</td>
+															<td>
+																<button class="is-remove" data-popup-open="#modal">
+																	<svg class="icon">
+																		<use xlink:href="#icon-close"></use>
+																	</svg>
+																</button>
+															</td>
+														</tr>
+														<tr>
+															<td>3829374</td>
+															<td>08.21.2018</td>
+															<td>4 weeks</td>
+															<td>$ 200 00</td>
+															<td>
+																<button class="is-remove" data-popup-open="#modal">
+																	<svg class="icon">
+																		<use xlink:href="#icon-close"></use>
+																	</svg>
+																</button>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<div class="popup" id="modal">
+			<div class="popup__wrapper">
+				<div class="popup__main">
+					<button class="popup__close" data-popup-close>
+						<svg class="icon">
+							<use xlink:href="#icon-close"></use>
+						</svg>
+					</button>
+					<header class="popup__header">
+						<h2 class="popup__title">You‘re about to dissolve a portfolio. Are you sure?</h2>
+					</header>
+					<div class="popup__content">
+						<button class="button button--blue">NO</button>
+						<button class="button button--gray">YES</button>
+					</div>
+					<div class="popup__footer">
+						<p class="red">*Note if you dissolve a portfolio which had a runtime of less than 10 weeks you will be charged a 10% penalty.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script onload="window.incrementResourceCounter()" src="js/main.bundle.js"></script>
+		<script>
+			/** */
+			function removeItem() {
+				var removeBtns = document.querySelectorAll('[data-popup-open]');
+
+				[].slice.call(removeBtns).forEach(function(item, index) {
+					new Popup(item.getAttribute('data-popup-open'), index).init();
+				});
+			}
+
+			document.addEventListener('DOMContentLoaded', function() {
+				tabs('.tab', '.tab__btn', '.tab__item');
+				removeItem();
+			});
+
+		</script>
+	</body>
+
+</html>
